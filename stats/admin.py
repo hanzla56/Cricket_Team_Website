@@ -5,9 +5,13 @@ from .models import *
 class Match_stat_admin_view(admin.ModelAdmin):
     list_display = ('match','player','runs_scored')
     
+class Match_admin_view(admin.ModelAdmin):
+    list_display = ('opposition','date')
 
+class player_admin_view(admin.ModelAdmin):
+    list_display = ('name','role','shirt_No')
 
-admin.site.register(player)
+admin.site.register(player,player_admin_view)
 admin.site.register(player_stat)
-admin.site.register(Match)
+admin.site.register(Match,Match_admin_view)
 admin.site.register(Match_Stat ,Match_stat_admin_view)
